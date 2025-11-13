@@ -16,6 +16,8 @@ int randomizeNumberInAssembly(int min, int max) {
         cout << "Randomization algorithm: XORshift with time + CPU cycle seed\n";
     }
 
+    cout << "Random number: ";
+
     uint32_t time_low, cycles_low;
     uint64_t time_ns, cycles;
 
@@ -43,7 +45,7 @@ int randomizeNumberInAssembly(int min, int max) {
     // initialize state with seed on first call
     if (!initialized) {
         state = seed;
-        if (state == 0) state = 1;  // State must be non-zero
+        if (state == 0) state = 1;
         initialized = true;
     }
 
@@ -94,7 +96,7 @@ int main(int argc, const char * argv[]) {
                 cin >> min;
                 cout << "Enter the maximum: ";
                 cin >> max;
-                cout << "Random number: " << randomizeNumberInAssembly(min, max) << endl;
+                cout << randomizeNumberInAssembly(min, max) << endl;
                 break;
             case 'q':
             case 'Q':
